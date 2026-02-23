@@ -13,7 +13,9 @@
             if (!title) return;
 
             title.addEventListener('click', function() {
-                cat.classList.toggle('active');
+                var isActive = cat.classList.contains('active');
+                categories.forEach(function(c) { c.classList.remove('active'); });
+                if (!isActive) cat.classList.add('active');
             });
         });
 
@@ -24,7 +26,10 @@
             if (!question) return;
 
             question.addEventListener('click', function() {
-                item.classList.toggle('active');
+                var isActive = item.classList.contains('active');
+                var siblings = item.parentNode.querySelectorAll('.faq-item');
+                siblings.forEach(function(s) { s.classList.remove('active'); });
+                if (!isActive) item.classList.add('active');
             });
         });
     }
