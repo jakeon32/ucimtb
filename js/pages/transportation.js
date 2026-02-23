@@ -49,7 +49,7 @@
                 <li data-vehicle-id="${vehicle.id}">
                     <div>
                         <div class="image">
-                            <img src="${vehicle.image}" alt="">
+                            <img src="${bp + vehicle.image}" alt="">
                         </div>
                         <div class="content">
                             <p class="title">${vehicle.title}</p>
@@ -83,7 +83,7 @@
             <li data-vehicle-id="${vehicle.id}">
                 <div>
                     <div class="image">
-                        <img src="${vehicle.image}" alt="">
+                        <img src="${bp + vehicle.image}" alt="">
                     </div>
                     <div class="content">
                         <p class="title">${vehicle.title}</p>
