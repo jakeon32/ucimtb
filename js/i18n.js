@@ -6,16 +6,25 @@
 (function() {
     'use strict';
 
+    // GitHub Pages 등 서브경로 배포를 위한 basePath 자동 감지
+    function getBasePath() {
+        var path = window.location.pathname;
+        var match = path.match(/^(.*?)\/(ko|en)\//);
+        if (match) return match[1]; // e.g., '' for localhost, '/ucimtb' for GitHub Pages
+        return '';
+    }
+
     // 현재 언어 감지 (URL에서 추출: /ko/... 또는 /en/...)
     function getCurrentLang() {
-        const path = window.location.pathname;
-        const match = path.match(/^\/(ko|en)\//);
+        var path = window.location.pathname;
+        var match = path.match(/\/(ko|en)\//);
         return match ? match[1] : 'en'; // 기본값: 영어
     }
 
     // 언어팩 데이터 저장
     let translations = {};
     let currentLang = getCurrentLang();
+    let basePath = getBasePath();
     let isLoaded = false;
 
     /**
@@ -24,7 +33,7 @@
      * @returns {Promise} 언어팩 데이터
      */
     function loadTranslations(lang) {
-        return fetch(`/lang/${lang}.json`)
+        return fetch(`${basePath}/lang/${lang}.json`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Failed to load language pack: ${lang}`);
@@ -99,9 +108,9 @@
      * @returns {string} 언어가 포함된 경로 (예: '/en/transportation')
      */
     function localePath(path) {
-        // 이미 언어 prefix가 있으면 그대로 반환
+        // 이미 언어 prefix가 있으면 basePath 추가 후 반환
         if (/^\/(ko|en)\//.test(path)) {
-            return path;
+            return basePath + path;
         }
         // 외부 링크(http://, https://)는 그대로 반환
         if (/^https?:\/\//.test(path)) {
@@ -109,7 +118,7 @@
         }
         // 경로가 /로 시작하지 않으면 추가
         const normalizedPath = path.startsWith('/') ? path : '/' + path;
-        return `/${currentLang}${normalizedPath}`;
+        return `${basePath}/${currentLang}${normalizedPath}`;
     }
 
     /**
@@ -155,6 +164,7 @@
         setLang: setLang,
         getLang: getLang,
         localePath: localePath,
+        basePath: basePath,
         showAlert: showAlert,
         confirm: confirm,
         init: init,

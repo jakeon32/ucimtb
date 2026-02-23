@@ -1,7 +1,8 @@
 // Transportation 페이지 스크립트
 (async function() {
     // JSON 데이터 로드
-    const response = await fetch('/data/vehicle-service.json');
+    var bp = (window.i18n && window.i18n.basePath) || '';
+    const response = await fetch(bp + '/data/vehicle-service.json');
     const data = await response.json();
 
     const { services, vehicles } = data;
