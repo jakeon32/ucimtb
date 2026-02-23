@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+@keyframes puff-in-center {
+    0% {
+        transform: scaleX(1.2) scaleY(2.4);
+        filter: blur(8px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}

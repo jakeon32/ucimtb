@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+#wrap.main{background-color: #171717;}
+main{}
+main .main-inner{}
+main .sct-hero{position: relative; padding: 5.21vw 0;}
+main .sct-hero .hero-swiper{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+main .sct-hero .hero-swiper .swiper-slide{position: relative;}
+main .sct-hero .hero-swiper .swiper-slide::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);}
+main .sct-hero .hero-swiper .swiper-slide img{width: 100%; height: 100%; object-fit: cover;}
+main .sct-hero .content{position: relative; z-index: 1;}
+main .sct-hero .content > .inner{display: flex; flex-direction: column; row-gap: 3.96vw;}
+main .sct-hero .content .text{display: flex; flex-direction: column; row-gap: 0.94vw; text-align: center;}
+main .sct-hero .content .text .title{font-size: 3.75vw; font-weight: 900; color: #fff; line-height: 1; text-shadow: var(--text-shadow) #000;}
+main .sct-hero .content .text .description{font-size: 2.08vw; font-weight: 400; color: #fff; text-shadow: var(--text-shadow) #000;}
+main .sct-hero .content .list{}
+main .sct-hero .content .list > ul{display: flex; column-gap: 1.67vw;}
+main .sct-hero .content .list li{flex: 1;}
+main .sct-hero .content .list li > a{border-radius: 0.63vw; overflow: hidden; display: flex; flex-direction: column; height: 100%; box-shadow: 0 0 0 rgba(0, 0, 0, 0); transition: all var(--transition);}
+main .sct-hero .content .list li > a:hover{transform: scale(1.02); box-shadow: 0 0 1.04vw rgba(0, 0, 0, 0.5);}
+main .sct-hero .content .list .list-content{display: flex; padding: 2.5vw 1.67vw; flex-direction: column; row-gap: 1.67vw; flex-grow: 1; background-color: rgba(255, 255, 255, 0.9); }
+main .sct-hero .content .list .list-content .list-image{width: 4.69vw; aspect-ratio: 1 / 1; flex-shrink: 0;}
+main .sct-hero .content .list .list-content .list-image img{width: 100%; height: 100%; object-fit: cover;}
+main .sct-hero .content .list .list-content .list-text{display: flex; flex-direction: column; row-gap: 0.83vw;}
+main .sct-hero .content .list .list-content .list-text .list-title{font-size: 1.67vw; font-weight: 700; color: var(--color-text);}
+main .sct-hero .content .list .list-content .list-text .list-desc{font-size: 1.04vw; font-weight: 400; color: var(--color-text);}
+main .sct-hero .content .list .list-link{font-size: 1.04vw; font-weight: 500; color: #fff; background-color: #1F1F1F; text-transform: uppercase; display: flex; align-items: center; justify-content: flex-end; height: 3.54vw; width: 100%; padding: 0 1.25vw; column-gap: 0.63vw; flex-shrink: 0;}
+main .sct-hero .content .list .list-link img{width: 1.25vw; aspect-ratio: 1 / 1; flex-shrink: 0;}
+main .sct-info{}
+main .sct-info .content{}
+main .sct-info .content .list{height: 16.67vw;}
+main .sct-info .content .list > ul{display: flex; width: 100%; height: 100%;}
+main .sct-info .content .list li{flex: 1; height: 100%;}
+main .sct-info .content .list li > a{position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 100%; overflow: hidden; padding: 2.08vw 3.75vw;}
+main .sct-info .content .list .list-bg{width: 100%; height: 100%; position: absolute; top: 0; left: 0; transition: all var(--transition);}
+main .sct-info .content .list .list-bg::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); transition: all var(--transition);}
+main .sct-info .content .list li > a:hover .list-bg{transform: scale(1.05);}
+main .sct-info .content .list li > a:hover .list-bg::before{background-color: rgba(0, 0, 0, 0.3);}
+main .sct-info .content .list li:first-child .list-bg::before{background-color: rgba(254, 0, 85, 0.85)}
+main .sct-info .content .list li:first-child > a:hover .list-bg::before{background-color: rgba(254, 0, 85, 0.3);}
+main .sct-info .content .list .list-bg img{width: 100%; height: 100%; object-fit: cover; transition: all var(--transition);}
+main .sct-info .content .list .list-text{position: relative;}
+main .sct-info .content .list li > a:hover .list-text .list-title, main .sct-info .content .list li > a:hover .list-link{text-shadow: 1px 1px 0.21vw #000;}
+main .sct-info .content .list .list-text .list-title{font-size: 2.19vw; font-weight: 700; color: #fff; transition: all var(--transition);}
+main .sct-info .content .list .list-link{position: relative; font-size: 1.04vw; font-weight: 500; color: #fff; text-transform: uppercase; display: flex; align-items: center; justify-content: flex-start; width: 100%; column-gap: 0.63vw; flex-shrink: 0; transition: all var(--transition);}
+main .sct-info .content .list .list-link img{width: 1.25vw; aspect-ratio: 1 / 1; flex-shrink: 0;}
+main .sct-contact{background-color: #171717; padding: 1.88vw 0;}
+main .sct-contact .content{}
+main .sct-contact .content .list{}
+main .sct-contact .content .list > ul{display: flex; justify-content: center; column-gap: 3.33vw;}
+main .sct-contact .content .list li{}
+main .sct-contact .content .list li > div{display: flex; flex-direction: column; align-items: flex-start; row-gap: 0.63vw; padding-left: 2.08vw; position: relative;}
+main .sct-contact .content .list li > div::before{content: ""; position: absolute; top: 0; left: 0; width: 1.25vw; height: 1.25vw; background-repeat: no-repeat; background-size: contain;}
+main .sct-contact .content .list li.email > div::before{background-image: url(../images/ico_contact_email.svg);}
+main .sct-contact .content .list li.hours > div::before{background-image: url(../images/ico_contact_hours.svg);}
+main .sct-contact .content .list li .list-desc{font-size: 1.04vw; font-weight: 500; color: #fff;}
+main .sct-contact .content .list li .list-email{font-size: 0.83vw; font-weight: 400; color: #CBCBCB; display: flex; flex-direction: column; row-gap: 0.21vw;}
+main .sct-contact .content .list li .list-email a{transition: all var(--transition);}
+main .sct-contact .content .list li .list-email a:hover{color: #fff;}
+
+/* MEDIA QUERY */
+@media (max-aspect-ratio: 10/9) {
+    main .sct-hero{padding: 13.33vw 0;}
+    main .sct-hero .content > .inner{row-gap: 13.33vw;}
+    main .sct-hero .content .text{row-gap: 3.33vw;}
+    main .sct-hero .content .text .title{font-size: 10vw;}
+    main .sct-hero .content .text .description{font-size: 6.67vw;}
+    main .sct-hero .content .list > ul{flex-direction: column; row-gap: 4.44vw;}
+    main .sct-hero .content .list li > a{border-radius: 3.33vw;}
+    main .sct-hero .content .list li > a:hover{transform: scale(1.02); box-shadow: 0 0 1.04vw rgba(0, 0, 0, 0.5);}
+    main .sct-hero .content .list .list-content{padding: 4.44vw; row-gap: 3.33vw;}
+    main .sct-hero .content .list .list-content .list-image{width: 13.33vw;}
+    main .sct-hero .content .list .list-content .list-text{row-gap: 3.33vw;}
+    main .sct-hero .content .list .list-content .list-text .list-title{font-size: 6.67vw;}
+    main .sct-hero .content .list .list-content .list-text .list-desc{font-size: 4.44vw;}
+    main .sct-hero .content .list .list-link{font-size: 4.44vw; height: 13.33vw; padding: 0 4.44vw; column-gap: 3.33vw; justify-content: space-between;}
+    main .sct-hero .content .list .list-link img{width: 5.56vw;}
+    main .sct-info .content .list{height: auto;}
+    main .sct-info .content .list > ul{flex-direction: column;}
+    main .sct-info .content .list li > a{padding: 11.11vw 8.89vw; row-gap: 6.67vw;}
+    main .sct-info .content .list .list-text .list-title{font-size: 6.67vw;}
+    main .sct-info .content .list .list-link{font-size: 4.44vw; column-gap: 3.33vw;}
+    main .sct-info .content .list .list-link img{width: 5.56vw;}
+
+    main .sct-contact{padding: 11.11vw 4.44vw;}
+    main .sct-contact .content .list > ul{flex-direction: column; row-gap: 6.67vw;}
+    main .sct-contact .content .list li > div{row-gap: 3.33vw; padding-left: 8.89vw;}
+    main .sct-contact .content .list li > div::before{width: 5.56vw; height: 5.56vw;}
+    main .sct-contact .content .list li .list-desc{font-size: 4.44vw;}
+    main .sct-contact .content .list li .list-email{font-size: 3.89vw; row-gap: 2.22vw;}
+    main .sct-contact .content .list li .list-email b{display: block;}
+
+
+
+}

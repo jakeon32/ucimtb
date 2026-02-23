@@ -1,0 +1,149 @@
+{
+    "services": [
+        {
+            "id": "one-way",
+            "code": "SERVICE_01",
+            "name": "ONE-WAY",
+            "description": "One-way transport service from airport to venue or accommodation.",
+            "vehicles": ["sedan", "minivan", "minibus", "coach", "truck-1t", "truck-2_5t", "truck-5t"]
+        },
+        {
+            "id": "charter-service",
+            "code": "SERVICE_02",
+            "name": "CHARTER SERVICE",
+            "description": "Daily charter service with chauffeur for unlimited movement within the region.<br> (Driver accommodation included)",
+            "vehicles": ["sedan", "minivan", "minibus", "coach"]
+        },
+        {
+            "id": "rental-car",
+            "code": "SERVICE_03",
+            "name": "RENTAL CAR",
+            "description": "Self-drive rental car service for free movement.",
+            "vehicles": ["rental-sedan", "rental-suv", "rental-minivan"]
+        },
+        {
+            "id": "local-coordinator",
+            "code": "SERVICE_04",
+            "name": "LOCAL COORDINATOR",
+            "description": "Local coordinator for smooth communication and operations.",
+            "vehicles": ["coordinator"]
+        }
+    ],
+    "vehicles": [
+        {
+            "id": "sedan",
+            "title": "SEDAN",
+            "image": "/images/vehicle/img_sedan.png",
+            "specs": {
+                "seats": "2 PAX",
+                "baggage": "2 Medium Suitcases",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "minivan",
+            "title": "MINIVAN",
+            "image": "/images/vehicle/img_minivan.png",
+            "specs": {
+                "seats": "4 PAX",
+                "baggage": "4 Medium Suitcases",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "minibus",
+            "title": "MINIBUS",
+            "image": "/images/vehicle/img_minibus.png",
+            "specs": {
+                "seats": "7 PAX",
+                "baggage": "7 Medium Suitcases",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "coach",
+            "title": "COACH",
+            "image": "/images/vehicle/img_coach.png",
+            "specs": {
+                "seats": "30 PAX",
+                "baggage": "30 Medium Suitcases",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "truck-1t",
+            "title": "1-Ton Box Truck (Logistics)",
+            "image": "/images/vehicle/img_truck_1t.png",
+            "specs": {
+                "seats": "Not available",
+                "baggage": "5 Medium Suitcases",
+                "bicycle": "5 Boxes"
+            },
+            "note": "\u203b Cargo Dimensions (Internal) - Length 2700~2800mm, Width 1600mm, Height 1600~1800mm"
+        },
+        {
+            "id": "truck-2_5t",
+            "title": "2.5-Ton Truck (Logistics)",
+            "image": "/images/vehicle/img_truck_2_5t.png",
+            "specs": {
+                "seats": "Not available",
+                "baggage": "10 Medium Suitcases",
+                "bicycle": "10 Boxes"
+            },
+            "note": "\u203b Cargo Dimensions (Internal) - Length 4300mm, Width 1800mm, Height 1800~2000mm"
+        },
+        {
+            "id": "truck-5t",
+            "title": "5-Ton Truck (Logistics)",
+            "image": "/images/vehicle/img_truck_5t.png",
+            "specs": {
+                "seats": "Not available",
+                "baggage": "20 Medium Suitcases",
+                "bicycle": "20 Boxes"
+            },
+            "note": "\u203b Cargo Dimensions (Internal) - Length 6200mm, Width 2340mm, Height 2300~2400mm"
+        },
+        {
+            "id": "rental-sedan",
+            "title": "SEDAN",
+            "image": "/images/vehicle/img_rental_sedan.png",
+            "specs": {
+                "seats": "4 PAX",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "rental-suv",
+            "title": "SUV",
+            "image": "/images/vehicle/img_rental_suv.png",
+            "specs": {
+                "seats": "5 PAX",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "rental-minivan",
+            "title": "MINIVAN",
+            "image": "/images/vehicle/img_rental_minivan.png",
+            "specs": {
+                "seats": "6 PAX",
+                "bicycle": "Not available"
+            },
+            "note": "\u203b Bicycle transport requires a separate goods vehicle."
+        },
+        {
+            "id": "coordinator",
+            "title": "Local Coordinator",
+            "image": "/images/vehicle/img_coordinator.jpg",
+            "type": "service",
+            "description": "We provide general interpreting support to facilitate the team's smooth local operations and communication.",
+            "note": "* This can be selected as an option when booking your vehicle."
+        }
+    ]
+}

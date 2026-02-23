@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+:root{
+    --font-family: "Pretendard Variable";
+    --font-family-sub: "termina";
+    --font-size: 1.04vw;
+    --line-height: normal;
+    --color-primary: #005195;
+    --color-secondary: #FE0056;
+    --color-border: #CED4DA;
+    --color-text: #000;
+    --color-text-sub: #9CA3AF;
+    --color-background: #FFFFFF;
+    --transition: .3s ease-out;
+    --text-shadow: 0.1vw 0.1vw 0.31vw;
+    --height-header: 4.17vw;
+    /* --height-footer: 3.33vw; */
+}
+
+/* MEDIA QUERY */
+@media (max-aspect-ratio: 10/9) {
+    :root{
+        --font-size: 4.44vw;
+        --height-header: 16.67vw;
+        /* --height-footer: 13.33vw; */
+    }
+}

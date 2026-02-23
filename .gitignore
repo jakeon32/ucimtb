@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Claude
+.claude/
+
+# bkit
+.bkit/
+docs/.bkit-memory.json
+docs/.pdca-snapshots/
+docs/.pdca-status.json
