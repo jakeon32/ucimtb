@@ -667,75 +667,184 @@
                 <div class="title">CONTACT US</div>
                 <button type="button" class="btn-close"><img src="../images/common/ico_close.svg" alt=""></button>
             </div>
+            <div class="step-indicator">
+                <div class="step-item active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Basic Information</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Service & Equipment</div>
+                </div>
+            </div>
             <div class="modal-body">
-                <div class="form-wrap">
-                    <div class="form-group">
-                        <label for="contact-team-country">Team/Country</label>
-                        <div class="input-group">
-                            <input type="text" id="contact-team-country" name="team_country" placeholder="e.g., Team name / Country name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-name">Name</label>
-                        <div class="input-group">
-                            <input type="text" id="contact-name" name="name" placeholder="e.g., Steve Rogers">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-email">Email</label>
-                        <div class="input-group">
-                            <input type="email" id="contact-email" name="email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-phone">Phone</label>
-                        <div class="input-group">
-                            <input type="tel" id="contact-phone-code" name="phone_code" placeholder="+ Code">
-                            <input type="tel" id="contact-phone-number" name="phone_number" placeholder="e.g., 1012345678">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-service-type">Service Type</label>
-                        <div class="input-group">
-                            <select id="contact-service-type" name="service_type" required>
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="Airport Transfer (One-way)">Airport Transfer (One-way)</option>
-                                <option value="Daily Charter">Daily Charter</option>
-                                <option value="Vehicle Rental">Vehicle Rental</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group-wrap">
+                <!-- Step 1: Basic Information -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-wrap">
                         <div class="form-group">
-                            <label for="contact-passengers">Passengers</label>
+                            <label for="contact-booking-type">Booking Type <span class="required">*</span></label>
                             <div class="input-group">
-                                <input type="tel" id="contact-passengers" name="passengers" placeholder="0">
+                                <select id="contact-booking-type" name="booking_type" required>
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="Team">Team</option>
+                                    <option value="Officials">Officials</option>
+                                    <option value="Media">Media</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="contact-luggages">Luggages</label>
+                            <label for="contact-name">Name / Team Name <span class="required">*</span></label>
                             <div class="input-group">
-                                <input type="tel" id="contact-luggages" name="luggages" placeholder="0">
+                                <input type="text" id="contact-name" name="name" placeholder="e.g., Team name or Full name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="contact-bicycles">Bicycles</label>
+                            <label for="contact-email">Email <span class="required">*</span></label>
                             <div class="input-group">
-                                <input type="tel" id="contact-bicycles" name="bicycles" placeholder="0">
+                                <input type="email" id="contact-email" name="email" placeholder="e.g., name@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone (incl. country code) <span class="required">*</span></label>
+                            <div class="input-group">
+                                <input type="tel" id="contact-phone-code" name="phone_code" placeholder="+ Code">
+                                <input type="tel" id="contact-phone-number" name="phone_number" placeholder="e.g., 1012345678">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-accommodation">Accommodation</label>
+                            <div class="input-group">
+                                <select id="contact-accommodation" name="accommodation">
+                                    <option value="" disabled selected>Select accommodation</option>
+                                    <option value="Yongpyong Resort">Yongpyong Resort</option>
+                                    <option value="Alpensia Resort">Alpensia Resort</option>
+                                    <option value="Ramada Hotel">Ramada Hotel</option>
+                                    <option value="Pungrim I-One Resort">Pungrim I-One Resort</option>
+                                    <option value="Other">Other (please specify)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group conditional" id="accommodation-other-group" style="display:none;">
+                            <label for="contact-accommodation-other">Accommodation (Other)</label>
+                            <div class="input-group">
+                                <input type="text" id="contact-accommodation-other" name="accommodation_other" placeholder="Please enter your accommodation">
+                            </div>
+                        </div>
+                        <div class="form-group-wrap compact">
+                            <div class="form-group">
+                                <label for="contact-arrival-date">Arrival Date</label>
+                                <div class="input-group">
+                                    <input type="date" id="contact-arrival-date" name="arrival_date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-arrival-time">Arrival Time</label>
+                                <div class="input-group">
+                                    <input type="time" id="contact-arrival-time" name="arrival_time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-arrival-flight">Arrival Flight No.</label>
+                            <div class="input-group">
+                                <input type="text" id="contact-arrival-flight" name="arrival_flight" placeholder="e.g., KE001">
+                            </div>
+                        </div>
+                        <div class="form-group-wrap compact">
+                            <div class="form-group">
+                                <label for="contact-departure-date">Departure Date</label>
+                                <div class="input-group">
+                                    <input type="date" id="contact-departure-date" name="departure_date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-departure-time">Departure Time</label>
+                                <div class="input-group">
+                                    <input type="time" id="contact-departure-time" name="departure_time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-departure-flight">Departure Flight No.</label>
+                            <div class="input-group">
+                                <input type="text" id="contact-departure-flight" name="departure_flight" placeholder="e.g., KE002">
                             </div>
                         </div>
                     </div>
-                    <div class="form-group full">
-                        <label for="contact-message">Message</label>
-                        <div class="input-group">
-                            <textarea id="contact-message" name="message" placeholder="Please enter your enquiry."></textarea>
+                </div>
+                <!-- Step 2: Service & Equipment -->
+                <div class="form-step" data-step="2">
+                    <div class="form-wrap">
+                        <div class="form-group full">
+                            <label for="service-select">Services</label>
+                            <div class="input-group">
+                                <select id="service-select">
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="Chauffeur - Airport Transfer">Chauffeur - Airport Transfer</option>
+                                    <option value="Chauffeur - Daily Charter">Chauffeur - Daily Charter</option>
+                                    <option value="Rental Car (Self Drive)">Rental Car (Self Drive)</option>
+                                    <option value="Transport (Equipment/Cargo)">Transport (Equipment/Cargo)</option>
+                                    <option value="On-site Support & Coordinator">On-site Support & Coordinator</option>
+                                </select>
+                            </div>
+                            <div class="selected-services" id="selected-services"></div>
+                        </div>
+                        <div class="form-group-wrap compact">
+                            <div class="form-group">
+                                <label for="contact-passengers">Passengers</label>
+                                <div class="input-group">
+                                    <input type="tel" id="contact-passengers" name="passengers" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-bike-boxes">Std. Bike Boxes</label>
+                                <div class="input-group">
+                                    <input type="tel" id="contact-bike-boxes" name="bike_boxes" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-wrap compact">
+                            <div class="form-group">
+                                <label for="contact-large-equipment">Large Equip. Boxes</label>
+                                <div class="input-group">
+                                    <input type="tel" id="contact-large-equipment" name="large_equipment" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-additional-cargo">Additional Cargo</label>
+                                <div class="input-group">
+                                    <input type="tel" id="contact-additional-cargo" name="additional_cargo" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-budget">Budget Range</label>
+                            <div class="input-group">
+                                <select id="contact-budget" name="budget">
+                                    <option value="" disabled selected>Select budget range</option>
+                                    <option value="Under $500">Under $500</option>
+                                    <option value="$500 - $1,000">$500 - $1,000</option>
+                                    <option value="$1,000 - $2,500">$1,000 - $2,500</option>
+                                    <option value="$2,500+">$2,500+</option>
+                                    <option value="No preference">No preference</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label for="contact-message">Special Requests</label>
+                            <div class="input-group">
+                                <textarea id="contact-message" name="message" placeholder="Any other special requests or requirements..."></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn-cancel">Cancel</button>
-                <button type="button" class="btn-send" id="contact-submit">Send Message</button>
+                <button type="button" class="btn-back" id="contact-back" style="display:none;">Back</button>
+                <button type="button" class="btn-next" id="contact-next">Next</button>
+                <button type="button" class="btn-send" id="contact-submit" style="display:none;">Send Message</button>
             </div>
         </div>
     </div>
