@@ -174,10 +174,10 @@ const setupNumericInput = (inputId) => {
     });
 }
 
-// Contact Form 초기화 및 제출 처리 (main 페이지용)
+// Contact Form 초기화 및 제출 처리 (main 페이지용 - 1-step)
 const initContactForm = () => {
-    // transportation 페이지는 별도 핸들러 사용
-    if (document.querySelector('#wrap.transportation')) return;
+    // 2-step 폼이 있는 페이지는 별도 핸들러 사용
+    if (document.querySelector('.step-indicator')) return;
 
     const submitBtn = document.getElementById('contact-submit');
     if (!submitBtn) return;
@@ -358,9 +358,9 @@ const initContactForm = () => {
     });
 }
 
-// Transportation 페이지 전용 폼 초기화
+// 2-step 폼 초기화 (Transportation, FAQ 등)
 const initTransportationForm = () => {
-    if (!document.querySelector('#wrap.transportation')) return;
+    if (!document.querySelector('.step-indicator')) return;
 
     const submitBtn = document.getElementById('contact-submit');
     const nextBtn = document.getElementById('contact-next');
