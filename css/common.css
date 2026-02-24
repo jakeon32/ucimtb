@@ -65,6 +65,7 @@ footer .copyright{font-size: 1.04vw; font-weight: 400; color: #6B7280; text-alig
 .modal-body .form-wrap .form-group .input-group:has(input[type="tel"]) input:first-child{flex: 1;}
 .modal-body .form-wrap .form-group .input-group:has(input[type="tel"]) input:last-child{flex: 3;}
 .modal-body .form-wrap .form-group .input-group input, .modal-body .form-wrap .form-group .input-group select, .modal-body .form-wrap .form-group .input-group textarea{width: 100%; font-size: 0.83vw;}
+.modal-body .form-wrap .form-group .input-group input[type="date"], .modal-body .form-wrap .form-group .input-group input[type="time"]{font-size: 1.04vw;}
 .modal-body .form-wrap .form-group-wrap{display: flex; align-items: center; column-gap: 0.42vw;}
 .modal-body .form-wrap .form-group-wrap > .form-group{flex: 1;}
 .modal-body .form-wrap .form-group.full{grid-column: span 2;}

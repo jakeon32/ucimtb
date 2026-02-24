@@ -147,8 +147,8 @@ input[type="date"], input[type="time"] {
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    width: 1.25vw;
-    height: 1.25vw;
+    width: 1.67vw;
+    height: 1.67vw;
 }
 
 input[type="button"], input[type="submit"] {
