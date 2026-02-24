@@ -64,8 +64,7 @@ footer .copyright{font-size: 1.04vw; font-weight: 400; color: #6B7280; text-alig
 .modal-body .form-wrap .form-group .input-group:has(input[type="tel"]){}
 .modal-body .form-wrap .form-group .input-group:has(input[type="tel"]) input:first-child{flex: 1;}
 .modal-body .form-wrap .form-group .input-group:has(input[type="tel"]) input:last-child{flex: 3;}
-.modal-body .form-wrap .form-group .input-group input, .modal-body .form-wrap .form-group .input-group select, .modal-body .form-wrap .form-group .input-group textarea{width: 100%; font-size: 0.83vw;}
-.modal-body .form-wrap .form-group .input-group input[type="date"], .modal-body .form-wrap .form-group .input-group input[type="time"]{font-size: 1.04vw;}
+.modal-body .form-wrap .form-group .input-group input, .modal-body .form-wrap .form-group .input-group select, .modal-body .form-wrap .form-group .input-group textarea{width: 100%; font-size: 1.04vw;}
 .modal-body .form-wrap .form-group-wrap{display: flex; align-items: center; column-gap: 0.42vw;}
 .modal-body .form-wrap .form-group-wrap > .form-group{flex: 1;}
 .modal-body .form-wrap .form-group.full{grid-column: span 2;}
@@ -123,6 +122,17 @@ footer .copyright{font-size: 1.04vw; font-weight: 400; color: #6B7280; text-alig
 /* form - form-group-wrap in grid */
 .modal-body .form-wrap .form-group-wrap{grid-column: span 2;}
 
+
+/* flatpickr overrides */
+.flatpickr-calendar{font-size: 0.94vw; padding: 0.83vw !important; box-sizing: content-box !important;}
+.flatpickr-months .flatpickr-month{height: 2.92vw;}
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month{display: flex; align-items: center; height: 2.92vw;}
+.flatpickr-current-month{font-size: 1.04vw;}
+.flatpickr-current-month .flatpickr-monthDropdown-months{font-size: 1.04vw;}
+.flatpickr-current-month input.cur-year{font-size: 1.04vw;}
+span.flatpickr-weekday{font-size: 0.83vw;}
+.flatpickr-day{height: 2.29vw; line-height: 2.29vw; font-size: 0.83vw;}
+.numInputWrapper span.arrowUp, .numInputWrapper span.arrowDown{padding: 0; opacity: 1;}
 
 /* MEDIA QUERY */
 @media (max-aspect-ratio: 10/9) {
@@ -187,6 +197,16 @@ footer .copyright{font-size: 1.04vw; font-weight: 400; color: #6B7280; text-alig
     .selected-service-item .service-detail-select{font-size: 3.89vw; padding: 2.22vw; border-radius: 1.67vw;}
     .modal-body .form-wrap .form-group-wrap{grid-column: span 1; flex-direction: column; row-gap: 5.56vw;}
     .modal-body .form-wrap .form-group-wrap.compact{flex-direction: row; column-gap: 2.22vw; row-gap: 0;}
+
+    /* flatpickr mobile overrides */
+    .flatpickr-calendar{font-size: 3.89vw;}
+    .flatpickr-months .flatpickr-month{height: 11.11vw;}
+    .flatpickr-current-month{font-size: 4.44vw;}
+    .flatpickr-current-month .flatpickr-monthDropdown-months{font-size: 4.44vw;}
+    .flatpickr-current-month input.cur-year{font-size: 4.44vw;}
+    span.flatpickr-weekday{font-size: 3.33vw;}
+    .flatpickr-day{height: 11.11vw; line-height: 11.11vw; font-size: 3.89vw;}
+
     .modal-footer{column-gap: 2.22vw; padding: 0 3.33vw 6.67vw 3.33vw;}
     .modal-footer button{font-size: 4.44vw; padding: 4.44vw 0; border-radius: 2.22vw; flex-grow: 1;}
 }

@@ -477,6 +477,36 @@ const initTransportationForm = () => {
     setupNumericInput('contact-large-equipment');
     setupNumericInput('contact-additional-cargo');
 
+    // flatpickr 날짜 선택 초기화
+    if (typeof flatpickr !== 'undefined') {
+        var fpDateConfig = {
+            dateFormat: 'Y-m-d',
+            allowInput: false
+        };
+        var arrDateEl = document.getElementById('contact-arrival-date');
+        var depDateEl = document.getElementById('contact-departure-date');
+        if (arrDateEl) flatpickr(arrDateEl, fpDateConfig);
+        if (depDateEl) flatpickr(depDateEl, fpDateConfig);
+    }
+
+    // 시간 드롭다운 옵션 생성 (30분 간격)
+    function populateTimeSelect(selectEl) {
+        if (!selectEl) return;
+        for (var h = 0; h < 24; h++) {
+            for (var m = 0; m < 60; m += 30) {
+                var hh = h < 10 ? '0' + h : '' + h;
+                var mm = m < 10 ? '0' + m : '' + m;
+                var val = hh + ':' + mm;
+                var opt = document.createElement('option');
+                opt.value = val;
+                opt.textContent = val;
+                selectEl.appendChild(opt);
+            }
+        }
+    }
+    populateTimeSelect(document.getElementById('contact-arrival-time'));
+    populateTimeSelect(document.getElementById('contact-departure-time'));
+
     // 숙소 "Other" 선택 시 직접입력 필드 표시
     const accommodationField = document.getElementById('contact-accommodation');
     const accommodationOtherGroup = document.getElementById('accommodation-other-group');
@@ -737,10 +767,12 @@ const initTransportationForm = () => {
                 accommodationField.value = '';
                 accommodationOtherField.value = '';
                 accommodationOtherGroup.style.display = 'none';
-                arrivalDateField.value = '';
+                if (arrivalDateField?._flatpickr) arrivalDateField._flatpickr.clear();
+                else if (arrivalDateField) arrivalDateField.value = '';
                 if (arrivalTimeField) arrivalTimeField.value = '';
                 arrivalFlightField.value = '';
-                departureDateField.value = '';
+                if (departureDateField?._flatpickr) departureDateField._flatpickr.clear();
+                else if (departureDateField) departureDateField.value = '';
                 if (departureTimeField) departureTimeField.value = '';
                 departureFlightField.value = '';
                 selectedServicesList.length = 0;
