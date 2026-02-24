@@ -56,7 +56,7 @@ exports.handler = async (event) => {
 
     try {
         const result = await resend.emails.send({
-            from: 'DiscoverK <onboarding@resend.dev>',
+            from: 'DiscoverK <noreply@discoverk.com>',
             to: [toEmail],
             replyTo: email,
             subject: `[DiscoverK] New inquiry from ${name}`,
