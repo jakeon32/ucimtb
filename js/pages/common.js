@@ -527,13 +527,6 @@ const initTransportationForm = () => {
 
     function updateServiceDropdown() {
         if (!serviceSelect) return;
-        // 이미 선택된 서비스는 드롭다운에서 비활성화
-        const options = serviceSelect.querySelectorAll('option');
-        options.forEach(opt => {
-            if (opt.value) {
-                opt.disabled = selectedServicesList.includes(opt.value);
-            }
-        });
         // 플레이스홀더 변경
         const placeholder = serviceSelect.querySelector('option[value=""]');
         if (placeholder) {
@@ -554,39 +547,39 @@ const initTransportationForm = () => {
         }
 
         selectedServicesContainer.style.display = 'flex';
-        selectedServicesList.forEach(serviceName => {
-            const details = serviceDetails[serviceName];
-            const item = document.createElement('div');
+        selectedServicesList.forEach(function(serviceName, idx) {
+            var details = serviceDetails[serviceName];
+            var item = document.createElement('div');
             item.className = 'selected-service-item';
 
-            let detailHtml = '';
+            var detailHtml = '';
             if (details) {
-                const savedValue = serviceSelections[serviceName] || '';
-                detailHtml = `<select class="service-detail-select" data-service="${serviceName}">
-                    <option value="" disabled ${!savedValue ? 'selected' : ''}>Select vehicle</option>
-                    ${details.map(d => `<option value="${d.value}" ${savedValue === d.value ? 'selected' : ''}>${d.label}</option>`).join('')}
-                </select>`;
+                var savedValue = serviceSelections[idx] || '';
+                detailHtml = '<select class="service-detail-select" data-index="' + idx + '">'
+                    + '<option value="" disabled ' + (!savedValue ? 'selected' : '') + '>Select vehicle</option>'
+                    + details.map(function(d) { return '<option value="' + d.value + '" ' + (savedValue === d.value ? 'selected' : '') + '>' + d.label + '</option>'; }).join('')
+                    + '</select>';
             }
 
-            item.innerHTML = `<div class="service-item-header"><span class="service-item-name">${serviceName}</span><button type="button" class="btn-remove" data-value="${serviceName}">&times;</button></div>${detailHtml}`;
+            item.innerHTML = '<div class="service-item-header"><span class="service-item-name">' + serviceName + '</span><button type="button" class="btn-remove" data-index="' + idx + '">&times;</button></div>' + detailHtml;
             selectedServicesContainer.appendChild(item);
         });
 
         // 세부 선택 이벤트 바인딩
-        selectedServicesContainer.querySelectorAll('.service-detail-select').forEach(select => {
+        selectedServicesContainer.querySelectorAll('.service-detail-select').forEach(function(select) {
             select.addEventListener('change', function() {
-                serviceSelections[this.dataset.service] = this.value;
+                serviceSelections[parseInt(this.dataset.index)] = this.value;
             });
         });
 
         updateServiceDropdown();
     }
 
-    // 서비스 드롭다운 선택 시 추가
+    // 서비스 드롭다운 선택 시 추가 (동일 서비스 중복 선택 허용)
     if (serviceSelect) {
         serviceSelect.addEventListener('change', function() {
-            const value = this.value;
-            if (value && !selectedServicesList.includes(value)) {
+            var value = this.value;
+            if (value) {
                 selectedServicesList.push(value);
                 renderSelectedServices();
             }
@@ -596,13 +589,22 @@ const initTransportationForm = () => {
     // 선택된 서비스 삭제 버튼 (이벤트 위임)
     if (selectedServicesContainer) {
         selectedServicesContainer.addEventListener('click', function(e) {
-            const btn = e.target.closest('.btn-remove');
+            var btn = e.target.closest('.btn-remove');
             if (!btn) return;
-            const value = btn.dataset.value;
-            const idx = selectedServicesList.indexOf(value);
-            if (idx > -1) {
+            var idx = parseInt(btn.dataset.index);
+            if (idx >= 0 && idx < selectedServicesList.length) {
                 selectedServicesList.splice(idx, 1);
-                delete serviceSelections[value];
+                // 인덱스 기반 세부선택 재정렬
+                var newSelections = {};
+                var i = 0;
+                selectedServicesList.forEach(function(_, newIdx) {
+                    var oldIdx = newIdx >= idx ? newIdx + 1 : newIdx;
+                    if (serviceSelections[oldIdx] !== undefined) {
+                        newSelections[newIdx] = serviceSelections[oldIdx];
+                    }
+                });
+                Object.keys(serviceSelections).forEach(function(k) { delete serviceSelections[k]; });
+                Object.keys(newSelections).forEach(function(k) { serviceSelections[k] = newSelections[k]; });
                 renderSelectedServices();
             }
         });
@@ -689,11 +691,11 @@ const initTransportationForm = () => {
         if (departureDateTime) info.push(`Departure: ${departureDateTime}`);
         if (departureFlight) info.push(`Departure Flight: ${departureFlight}`);
         if (selectedServices.length > 0) {
-            const serviceLines = selectedServices.map(s => {
-                const detail = serviceSelections[s];
-                return detail ? `${s} (${detail})` : s;
+            var serviceLines = selectedServices.map(function(s, i) {
+                var detail = serviceSelections[i];
+                return detail ? s + ' (' + detail + ')' : s;
             });
-            info.push(`Services: ${serviceLines.join(', ')}`);
+            info.push('Services: ' + serviceLines.join(', '));
         }
         if (passengers) info.push(`Passengers: ${passengers}`);
         if (bikeBoxes) info.push(`Std. Bike Boxes: ${bikeBoxes}`);

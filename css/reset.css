@@ -139,8 +139,16 @@ input[type="number"], input[type="number"]::-webkit-inner-spin-button, input[typ
 
 }
 
-input[type="date"], input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-outer-spin-button {
+input[type="date"], input[type="time"] {
+    appearance: auto;
+    -webkit-appearance: auto;
+}
 
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    width: 1.25vw;
+    height: 1.25vw;
 }
 
 input[type="button"], input[type="submit"] {
@@ -226,5 +234,10 @@ input[type="text"]:read-only, input[type="password"]:read-only, input[type="tel"
     select {
         background-size: 6.67vw;
         background-position: center right 3.33vw;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        width: 5.56vw;
+        height: 5.56vw;
     }
 }
