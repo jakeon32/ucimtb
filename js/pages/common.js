@@ -675,7 +675,6 @@ const initTransportationForm = () => {
         const bikeBoxesField = document.getElementById('contact-bike-boxes');
         const largeEquipmentField = document.getElementById('contact-large-equipment');
         const additionalCargoField = document.getElementById('contact-additional-cargo');
-        const budgetField = document.getElementById('contact-budget');
         const messageField = document.getElementById('contact-message');
 
         // 필드 값
@@ -696,7 +695,6 @@ const initTransportationForm = () => {
         const bikeBoxes = bikeBoxesField?.value.trim() || '';
         const largeEquipment = largeEquipmentField?.value.trim() || '';
         const additionalCargo = additionalCargoField?.value.trim() || '';
-        const budget = budgetField?.value || '';
         const message = messageField?.value.trim() || '';
         const selectedServices = [...selectedServicesList];
 
@@ -731,7 +729,6 @@ const initTransportationForm = () => {
         if (bikeBoxes) info.push(`Std. Bike Boxes: ${bikeBoxes}`);
         if (largeEquipment) info.push(`Large Equip. Boxes: ${largeEquipment}`);
         if (additionalCargo) info.push(`Additional Cargo: ${additionalCargo}`);
-        if (budget) info.push(`Budget Range: ${budget}`);
 
         let fullMessage = message || '(No special requests)';
         if (info.length > 0) {
@@ -782,7 +779,6 @@ const initTransportationForm = () => {
                 bikeBoxesField.value = '';
                 largeEquipmentField.value = '';
                 additionalCargoField.value = '';
-                budgetField.value = '';
                 messageField.value = '';
                 goToStep(1);
                 if (window.closeModal) window.closeModal('contact-us');
