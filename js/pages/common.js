@@ -726,8 +726,8 @@ const initTransportationForm = () => {
             info.push('Services: ' + serviceLines.join(', '));
         }
         if (passengers) info.push(`Passengers: ${passengers}`);
-        if (bikeBoxes) info.push(`Std. Bike Boxes: ${bikeBoxes}`);
-        if (largeEquipment) info.push(`Large Equip. Boxes: ${largeEquipment}`);
+        if (bikeBoxes) info.push(`Bike Boxes: ${bikeBoxes}`);
+        if (largeEquipment) info.push(`Suitcases: ${largeEquipment}`);
         if (additionalCargo) info.push(`Additional Cargo: ${additionalCargo}`);
 
         let fullMessage = message || '(No special requests)';
