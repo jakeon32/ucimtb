@@ -122,6 +122,23 @@ footer .copyright{font-size: 1.04vw; font-weight: 400; color: #6B7280; text-alig
 /* form - form-group-wrap in grid */
 .modal-body .form-wrap .form-group-wrap{grid-column: span 2;}
 
+/* form - divider */
+.form-divider{grid-column: span 2; height: 1px; background-color: #E2E8F0;}
+
+/* form - onsite contact toggle */
+.onsite-toggle{grid-column: span 2;}
+.onsite-toggle .checkbox-label{display: flex; align-items: center; gap: 0.52vw; cursor: pointer; font-size: 0.83vw; font-weight: 500; color: #374151; user-select: none; padding: 0.42vw 0;}
+.onsite-toggle .sr-only{position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;}
+.onsite-toggle .check-box{display: flex; align-items: center; justify-content: center; width: 1.04vw; height: 1.04vw; border: 2px solid #94A3B8; border-radius: 0.21vw; flex-shrink: 0; transition: all var(--transition);}
+.onsite-toggle .sr-only:checked + .check-box{background-color: var(--color-primary); border-color: var(--color-primary);}
+.onsite-toggle .sr-only:checked + .check-box::after{content: ""; display: block; width: 0.31vw; height: 0.57vw; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); margin-top: -0.1vw;}
+
+/* form - onsite fields */
+.onsite-fields{grid-column: span 2; overflow: hidden;}
+.onsite-fields .form-wrap{display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.46vw 1.25vw;}
+.onsite-fields .helper-text{font-size: 0.57vw; color: #94A3B8; margin-top: 0.42vw;}
+.onsite-fields .form-group label .optional{font-size: 0.68vw; font-weight: 400; color: #94A3B8;}
+
 
 /* flatpickr overrides */
 .flatpickr-calendar{font-size: 0.94vw; padding: 0.83vw !important; box-sizing: content-box !important;}
@@ -201,6 +218,17 @@ span.flatpickr-weekday{font-size: 0.83vw;}
     .selected-service-item .service-detail-select{font-size: 3.89vw; padding: 2.22vw; border-radius: 1.67vw;}
     .modal-body .form-wrap .form-group-wrap{grid-column: span 1; flex-direction: column; row-gap: 5.56vw;}
     .modal-body .form-wrap .form-group-wrap.compact{flex-direction: row; column-gap: 2.22vw; row-gap: 0;}
+
+    /* onsite contact */
+    .form-divider{grid-column: span 1;}
+    .onsite-toggle{grid-column: span 1;}
+    .onsite-toggle .checkbox-label{font-size: 3.89vw; gap: 2.22vw; padding: 1.11vw 0;}
+    .onsite-toggle .check-box{width: 5.56vw; height: 5.56vw; border-radius: 1.11vw; border-width: 2px;}
+    .onsite-toggle .sr-only:checked + .check-box::after{width: 1.67vw; height: 3.33vw; border-width: 0 2px 2px 0; margin-top: -0.56vw;}
+    .onsite-fields{grid-column: span 1;}
+    .onsite-fields .form-wrap{grid-template-columns: 1fr; row-gap: 5.56vw;}
+    .onsite-fields .helper-text{font-size: 2.78vw; margin-top: 2.22vw;}
+    .onsite-fields .form-group label .optional{font-size: 3.33vw;}
 
     /* flatpickr mobile overrides */
     .flatpickr-calendar{font-size: 3.89vw;}

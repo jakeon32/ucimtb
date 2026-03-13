@@ -472,10 +472,32 @@ const initTransportationForm = () => {
     // 숫자 입력 필드 설정
     setupNumericInput('contact-phone-code');
     setupNumericInput('contact-phone-number');
+    setupNumericInput('contact-onsite-phone-code');
+    setupNumericInput('contact-onsite-phone-number');
     setupNumericInput('contact-passengers');
     setupNumericInput('contact-bike-boxes');
     setupNumericInput('contact-large-equipment');
     setupNumericInput('contact-additional-cargo');
+
+    // Onsite contact 체크박스 토글
+    const onsiteCheck = document.getElementById('contact-onsite-check');
+    const onsiteFields = document.getElementById('onsite-fields');
+    if (onsiteCheck && onsiteFields) {
+        onsiteCheck.addEventListener('change', function() {
+            if (this.checked) {
+                onsiteFields.style.display = '';
+            } else {
+                onsiteFields.style.display = 'none';
+                // 입력값 초기화
+                var onsiteName = document.getElementById('contact-onsite-name');
+                var onsitePhoneCode = document.getElementById('contact-onsite-phone-code');
+                var onsitePhoneNumber = document.getElementById('contact-onsite-phone-number');
+                if (onsiteName) onsiteName.value = '';
+                if (onsitePhoneCode) onsitePhoneCode.value = '';
+                if (onsitePhoneNumber) onsitePhoneNumber.value = '';
+            }
+        });
+    }
 
     // flatpickr 날짜 선택 초기화
     if (typeof flatpickr !== 'undefined') {
@@ -710,6 +732,19 @@ const initTransportationForm = () => {
         const phone = `+${phoneCode} ${phoneNumber}`;
         info.push(`Phone: ${phone}`);
 
+        // Onsite contact 정보
+        const onsiteCheck = document.getElementById('contact-onsite-check');
+        if (onsiteCheck && onsiteCheck.checked) {
+            const onsiteName = document.getElementById('contact-onsite-name')?.value.trim() || '';
+            const onsitePhoneCode = document.getElementById('contact-onsite-phone-code')?.value.trim() || '';
+            const onsitePhoneNumber = document.getElementById('contact-onsite-phone-number')?.value.trim() || '';
+            if (onsiteName) info.push(`Onsite Contact Name: ${onsiteName}`);
+            if (onsitePhoneCode || onsitePhoneNumber) {
+                const onsitePhone = onsitePhoneCode ? `+${onsitePhoneCode} ${onsitePhoneNumber}` : onsitePhoneNumber;
+                info.push(`Onsite Contact Phone: ${onsitePhone}`);
+            }
+        }
+
         const finalAccommodation = accommodation === 'Other' ? accommodationOther : accommodation;
         if (finalAccommodation) info.push(`Accommodation: ${finalAccommodation}`);
         const arrivalDateTime = [arrivalDate, arrivalTime].filter(Boolean).join(' ');
@@ -780,6 +815,17 @@ const initTransportationForm = () => {
                 largeEquipmentField.value = '';
                 additionalCargoField.value = '';
                 messageField.value = '';
+                // Onsite contact 리셋
+                var onsiteCheckEl = document.getElementById('contact-onsite-check');
+                var onsiteFieldsEl = document.getElementById('onsite-fields');
+                if (onsiteCheckEl) onsiteCheckEl.checked = false;
+                if (onsiteFieldsEl) onsiteFieldsEl.style.display = 'none';
+                var onsiteNameEl = document.getElementById('contact-onsite-name');
+                var onsitePhoneCodeEl = document.getElementById('contact-onsite-phone-code');
+                var onsitePhoneNumberEl = document.getElementById('contact-onsite-phone-number');
+                if (onsiteNameEl) onsiteNameEl.value = '';
+                if (onsitePhoneCodeEl) onsitePhoneCodeEl.value = '';
+                if (onsitePhoneNumberEl) onsitePhoneNumberEl.value = '';
                 goToStep(1);
                 if (window.closeModal) window.closeModal('contact-us');
             } else {
