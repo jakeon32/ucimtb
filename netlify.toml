@@ -1,5 +1,7 @@
 [build]
-  publish = "."
+  # Publish only site files. Repo docs (*.md, docs/), function source and package.json stay private.
+  command = "rm -rf _site && mkdir _site && cp -r index.html en ko css js images data lang _site/"
+  publish = "_site"
   functions = "netlify/functions"
 
 [[redirects]]
